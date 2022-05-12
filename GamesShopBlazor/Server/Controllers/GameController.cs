@@ -1,28 +1,13 @@
-﻿<ul class="list-unstyled">
-    @foreach (var game in Games)
-   {
-       <li class="media my-3">
-           <div class="media-img-wrapper mr-2">
-               <a href="#">
-                   <img class="media-img" src="@game.ImageUrl" alt="@game.Name">
-               </a>
-           </div>
-           <div class="media-body">
-               <a href="#">
-                   <h4 class="mb-0">@game.Name</h4>
-               </a>
-               <p>@game.Description</p>
-               <h5 class="price">
-                   @game.Price zł
-               </h5>
-           </div>
-       </li>
-   }
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-</ul>
-
-@code {
-    private static List<Game> Games = new List<Game>
+namespace GamesShopBlazor.Server.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class GameController : ControllerBase
+    {
+        private static List<Game> Games = new List<Game>
     {
         new Game
         {
@@ -49,4 +34,5 @@
             Price = 10.00m,
         }
     };
+    }
 }
