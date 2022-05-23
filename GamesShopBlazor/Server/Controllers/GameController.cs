@@ -19,5 +19,11 @@ namespace GamesShopBlazor.Server.Controllers
             var result = await _gameService.GetGamesAsync();
             return Ok(result);
         }
+        [HttpGet("{gameId}")]
+        public async Task<ActionResult<ServiceResponse<Game>>> GetGame(int gameId)
+        {
+            var result = await _gameService.GetGameAsync(gameId);
+            return Ok(result);
+        }
     }
 }

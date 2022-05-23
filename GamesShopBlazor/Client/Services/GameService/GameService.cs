@@ -12,6 +12,12 @@ namespace GamesShopBlazor.Client.Services.GameService
         }
         public List<Game> Games { get; set ; } = new List<Game> ();
 
+        public async Task<ServiceResponse<Game>> GetGameAsync(int gameId)
+        {
+            var result = await _http.GetFromJsonAsync<ServiceResponse<Game>>($"api/game/{gameId}");
+            return result;
+        }
+
         public async Task GetGames()
         {
             var result = await _http.GetFromJsonAsync<ServiceResponse<List<Game>>>("api/game");
