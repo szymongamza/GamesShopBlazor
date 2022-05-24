@@ -2,6 +2,7 @@ global using GamesShopBlazor.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using GamesShopBlazor.Server.Data;
 global using GamesShopBlazor.Server.Services.GameService;
+global using GamesShopBlazor.Server.Services.CategoryService;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
