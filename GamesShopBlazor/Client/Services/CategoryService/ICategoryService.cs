@@ -1,6 +1,8 @@
 ﻿namespace GamesShopBlazor.Client.Services.CategoryService
 {
-    public class ICategoryService
+    public interface ICategoryService
     {
+        List<Category> Categories { get; set; }
+        Task GetCategories();
     }
 }
